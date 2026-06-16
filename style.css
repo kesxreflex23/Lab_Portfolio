@@ -1,0 +1,375 @@
+/* ============================================
+BREAKPOINTS
+mobile-first base: 320px and up
+tablet: min-width 600px
+desktop: min-width 1024px
+============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+ROOT VARIABLES
+============================================ */
+
+:root {
+    --color-primary: #14213d;
+    --color-secondary: #1f3c88;
+    --color-accent: #fca311;
+    --color-accent-light: #ffd166;
+    --color-grey-light: #f8f9fa;
+    --color-grey-medium: #dee2e6;
+    --color-grey-dark: #495057;
+    --color-text: #212529;
+    --color-surface: #ffffff;
+
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+}
+
+/* ============================================
+RESET
+============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { font-size: 62.5%; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    color: var(--color-text);
+    background-color: var(--color-grey-light);
+    line-height: 1.7;
+}
+
+/* ============================================
+TYPOGRAPHY
+============================================ */
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 4rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2.2rem; }
+h4 { font-size: 1.8rem; }
+
+p { font-size: 1.6rem; margin-bottom: 1rem; }
+small { font-size: 1.2rem; }
+
+blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    padding: 2rem;
+    background: white;
+    border-left: 6px solid var(--color-accent);
+    margin: 2rem 0;
+    position: relative;
+}
+
+blockquote::before {
+    content: '"';
+    font-size: 5rem;
+    color: var(--color-accent);
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-accent);
+    margin-top: .5rem;
+}
+
+/* ============================================
+LINKS
+============================================ */
+
+a:link { color: white; text-decoration: none; }
+a:visited { color: #dcdcdc; }
+a:hover { color: var(--color-accent); }
+a:active { color: red; }
+
+/* ============================================
+NAVIGATION
+============================================ */
+
+nav {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--color-primary);
+    padding: 2rem;
+}
+
+.logo {
+    color: white;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-links a {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-links a:hover {
+    background-color: var(--color-accent);
+    color: black;
+}
+
+.active { border-bottom: 3px solid var(--color-accent); }
+
+/* ============================================
+HEADER HERO
+============================================ */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: var(--space-lg);
+    background-color: white;
+    text-align: center;
+}
+
+.hero-content { flex: 1; }
+.hero-image { flex: 1; text-align: center; }
+
+.hero-image img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid var(--color-accent);
+}
+
+.tagline {
+    color: var(--color-secondary);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* ============================================
+MAIN
+============================================ */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem;
+}
+
+main > * {
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* ============================================
+GRID CARDS
+============================================ */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    justify-items: center;
+}
+
+.featured-card { grid-column: span 1; }
+
+.card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform .2s;
+}
+
+.card:hover { transform: translateY(-4px); }
+
+/* ============================================
+SIDEBAR GRID
+============================================ */
+
+.sidebar-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+aside {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-grey-medium);
+}
+
+/* ============================================
+PROJECT GRID
+============================================ */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+    justify-items: center;
+    align-items: start;
+}
+
+.project-grid figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.project-grid img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* ============================================
+TABLE
+============================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background-color: white;
+}
+
+caption {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+th, td {
+    border: 1px solid var(--color-grey-medium);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+thead {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+tfoot {
+    background-color: var(--color-accent-light);
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) { background-color: #f3f4f6; }
+
+/* ============================================
+LIST REQUIREMENT
+============================================ */
+
+ul li:first-child { border-top: none; }
+ul li:last-child { border-bottom: none; }
+
+/* ============================================
+FORM
+============================================ */
+
+form {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+fieldset {
+    border: 1px solid var(--color-grey-medium);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+legend { font-weight: bold; }
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-grey-medium);
+    border-radius: 8px;
+    font-family: var(--font-body);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 1.2rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+button:hover { background-color: var(--color-accent); }
+button:active { transform: scale(.97); }
+
+/* ============================================
+FOOTER
+============================================ */
+
+footer {
+    text-align: center;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 3rem;
+    margin-top
+
+}
